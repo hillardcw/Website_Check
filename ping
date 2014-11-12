@@ -1,0 +1,20 @@
+import urllib2
+
+URLS = ['http://sm6-content.smhost.net', 'https://tusd4237.smhost.net', 'https://connectionsacademy.smhost.net', 'http://www.google.com', 'http://ddfgdfgdfgdg.com']
+
+for websites in URLS:
+    website_check = urllib2.urlopen(websites)
+    #print website_check.read()
+
+    if website_check.getcode() == 200 or 301 or 302:
+        HTTP_STATUS = website_check.geturl()
+        print "HTTP Status:" ,website_check.getcode()
+        print HTTP_STATUS
+        print ""
+    if website_check == IOError:
+        HTTP_STATUS = website_check.geturl()
+        print "Damnit Jim, {} is dead!".format(HTTP_STATUS)
+        print "damn"
+
+print "*"*100
+
